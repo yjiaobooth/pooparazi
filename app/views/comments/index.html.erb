@@ -21,7 +21,7 @@
         <td><%= comment.user.email %></td>
         <td><%= comment.date_posted %></td>
         <td><%= comment.helpful_or_not %></td>
-        <td><%= comment.bathroom_id %></td>
+        <td><%= comment.bathroom.address %></td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
