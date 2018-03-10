@@ -49,8 +49,6 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-
-    @comment.user_id = params[:user_id]
     @comment.date_posted = params[:date_posted]
     @comment.helpful_or_not = params[:helpful_or_not]
     @comment.bathroom_id = params[:bathroom_id]
