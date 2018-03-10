@@ -9,7 +9,13 @@
       <dd><%= @bathroom.address %></dd>
 
       <dt>Neighborhood</dt>
-      <dd><%= @bathroom.neighborhood_id %></dd>
+      <dd>
+        <% if @bathroom.neighborhood.present? %>
+          <a href="/neighborhoods/<%= @bathroom.neighborhood_id %>">
+            <%= @bathroom.neighborhood.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Notes</dt>
       <dd><%= @bathroom.notes %></dd>

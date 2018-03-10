@@ -21,7 +21,13 @@
       <% @bathrooms.each do |bathroom| %>
       <tr>
         <td><%= bathroom.address %></td>
-        <td><%= bathroom.neighborhood.created_at %></td>
+        <td>
+          <% if bathroom.neighborhood.present? %>
+            <a href="/neighborhoods/<%= bathroom.neighborhood.id %>">
+              <%= bathroom.neighborhood.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= bathroom.notes %></td>
         <td><%= bathroom.comment_id %></td>
         <td><%= bathroom.public_or_not %></td>
