@@ -2,6 +2,11 @@ class BathroomsController < ApplicationController
   def index
     @q = Bathroom.ransack(params[:q])
     @bathrooms = @q.result(:distinct => true).includes(:comments, :neighborhood).page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@bathrooms.where.not(:address_latitude => nil)) do |bathroom, marker|
+      marker.lat bathroom.address_latitude
+      marker.lng bathroom.address_longitude
+      marker.infowindow "<h5><a href='/bathrooms/#{bathroom.id}'>#{bathroom.address}</a></h5><small>#{bathroom.address_formatted_address}</small>"
+    end
 
     render("bathrooms/index.html.erb")
   end
