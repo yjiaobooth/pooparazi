@@ -1,6 +1,6 @@
 class BathroomsController < ApplicationController
   def index
-    @bathrooms = Bathroom.all
+    @bathrooms = Bathroom.page(params[:page]).per(10)
 
     render("bathrooms/index.html.erb")
   end
