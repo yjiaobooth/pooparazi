@@ -24,7 +24,7 @@
           Address
         </label>
 
-        <textarea id="address" name="address" placeholder="Address" class="form-control" rows="3"><%= @bathroom.address %></textarea>
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @bathroom.address %>">
       </div>
 
       <!-- Label and input for neighborhood_id -->
@@ -33,7 +33,7 @@
           Neighborhood
         </label>
 
-        <%= select_tag(:neighborhood_id, options_from_collection_for_select(Neighborhood.all, :id, :created_at, @bathroom.neighborhood_id), :class => "form-control") %>
+        <%= select_tag(:neighborhood_id, options_from_collection_for_select(Neighborhood.all, :id, :name, @bathroom.neighborhood_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for notes -->
@@ -55,12 +55,11 @@
       </div>
 
       <!-- Label and input for public_or_not -->
-      <div class="form-group">
-        <label for="public_or_not" class="control-label">
+      <div class="checkbox">
+        <label for="public_or_not">
+          <input type="checkbox" id="public_or_not" name="public_or_not" value="1" <%= "checked" if @bathroom.public_or_not %>>
           Public or not
         </label>
-
-        <input type="text" id="public_or_not" name="public_or_not" placeholder="Public or not" class="form-control" value="<%= @bathroom.public_or_not %>">
       </div>
 
       <!-- Label and input for ratingeasy_to_find -->
@@ -69,7 +68,7 @@
           Ratingeasy to find
         </label>
 
-        <textarea id="ratingeasy_to_find" name="ratingeasy_to_find" placeholder="Ratingeasy to find" class="form-control" rows="3"><%= @bathroom.ratingeasy_to_find %></textarea>
+        <input type="text" id="ratingeasy_to_find" name="ratingeasy_to_find" placeholder="Ratingeasy to find" class="form-control" value="<%= @bathroom.ratingeasy_to_find %>">
       </div>
 
       <button class="btn btn-success">

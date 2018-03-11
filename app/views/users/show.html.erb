@@ -11,6 +11,15 @@
       <dt>Password</dt>
       <dd><%= @user.password %></dd>
 
+      <dt>Username</dt>
+      <dd><%= @user.username %></dd>
+
+      <dt>First name</dt>
+      <dd><%= @user.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @user.last_name %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -47,6 +56,37 @@
                 <i class="fa fa-trash-o"></i>
               </a>
             <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many bathrooms -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bathrooms
+      </li>
+
+      <% @user.bathrooms.each do |bathroom| %>
+        <li class="list-group-item">
+          <a href="/bathrooms/<%= bathroom.id %>">
+            <%= bathroom.address %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bathrooms/<%= bathroom.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bathrooms/<%= bathroom.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bathroom/<%= bathroom.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
           </div>
         </li>
       <% end %>
