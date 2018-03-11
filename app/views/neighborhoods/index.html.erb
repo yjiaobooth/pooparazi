@@ -9,6 +9,16 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :center_address_cont, "Center address contains" %>
+    <%= f.text_field :center_address_cont, :class => "form-control", :placeholder => "Center address contains" %>
+  </div>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -64,11 +74,15 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Name</th>
+        <th>Center address</th>
         <th>Actions</th>
       </tr>
 
       <% @neighborhoods.each do |neighborhood| %>
       <tr>
+        <td><%= neighborhood.name %></td>
+        <td><%= neighborhood.center_address %></td>
         <td>
           <a href="/neighborhoods/<%= neighborhood.id %>" class="btn btn-primary">Show</a>
           <a href="/neighborhoods/<%= neighborhood.id %>/edit" class="btn btn-warning">Edit</a>

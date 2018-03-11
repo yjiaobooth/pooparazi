@@ -16,7 +16,7 @@
       <dd>
         <% if @bathroom.neighborhood.present? %>
           <a href="/neighborhoods/<%= @bathroom.neighborhood_id %>">
-            <%= @bathroom.neighborhood.created_at %>
+            <%= @bathroom.neighborhood.name %>
           </a>
         <% end %>
       </dd>
